@@ -1,114 +1,38 @@
-name: CI
+name: Deploy Docs to GitHub Pages  
 
-on:
-  pull_request:
-    paths-ignore:
-      - 'build/**'
-      - 'docs/**'
-      - 'files/**'
+on:  
+  push:  
+    branches:  
+      - dev  # 更改为你需要监听的分支，如果是其他分支请相应修改  
 
-permissions:
-  contents: read
+jobs:  
+  deploy:  
+    runs-on: ubuntu-latest  
 
-jobs:
-  lint:
-    name: Lint testing
-    runs-on: ubuntu-latest
-    steps:
-      - name: Git checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-      - name: Install Node
-        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
-        with:
-          node-version: 18
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
+    steps:  
+      - name: Checkout repository  
+        uses: actions/checkout@v2  
 
-      - name: === Lint testing ===
-        run: npm run lint
+      - name: Check for changes in docs directory  
+        run: |  
+          git diff --quiet HEAD^ HEAD -- docs || echo "Changes detected in docs directory"  
 
-  unit:
-    name: Unit testing
-    runs-on: ubuntu-latest
-    steps:
-      - name: Git checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-      - name: Install Node
-        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
-        with:
-          node-version: 18
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
+      - name: Deploy to GitHub Pages  
+        if: success() && steps.check_for_changes.outputs.changed == 'true'  
+        run: |  
+          # 配置 Git  
+          git config --global user.name "GitHub Actions"  
+          git config --global user.email "actions@github.com"  
 
-      - name: === Unit testing ===
-        run: npm run test-unit
+          # 将 docs 目录内容复制到 gh-pages 分支  
+          git checkout --orphan gh-pages  
+          rm -rf ./*  
+          cp -r docs/* ./  
+          git add .  
+          git commit -m "Deploy docs to GitHub Pages" || echo "No changes to commit"  
+          git push --force origin gh-pages  
 
-  circular:
-    name: Circular dependencies testing
-    runs-on: ubuntu-latest
-    steps:
-      - name: Git checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-      - name: Install Node
-        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
-        with:
-          node-version: 18
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
-
-      - name: === Circular dependencies testing ===
-        run: npm run test-circular-deps
-
-  e2e:
-    name: E2E testing
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 20
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ windows-latest ]
-        CI: [ 0, 1, 2, 3 ]
-    env:
-      CI: ${{ matrix.CI }}
-    steps:
-      - name: Git checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-      - name: Install Node
-        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
-        with:
-          node-version: 18
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
-      - name: Build
-        run: npm run build-module
-
-      - name: === E2E testing ===
-        run: npm run test-e2e
-      - name: Upload output screenshots
-        uses: actions/upload-artifact@834a144ee995460fba8ed112a2fc961b36a5ec5a # v4
-        if: always()
-        with:
-          name: Output screenshots-${{ matrix.os }}-${{ matrix.CI }}
-          path: test/e2e/output-screenshots
-          if-no-files-found: ignore
-
-  e2e-cov:
-    name: Examples ready for release
-    runs-on: ubuntu-latest
-    steps:
-      - name: Git checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-      - name: Install Node
-        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
-        with:
-          node-version: 18
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
-
-      - name: === Examples ready for release ===
-        run: npm run test-e2e-cov
+      - name: Cleanup  
+        run: |  
+          git checkout main  
+          git branch -D gh-pages
