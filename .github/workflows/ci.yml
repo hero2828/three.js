@@ -5,30 +5,5 @@ on:
     branches:  
       - dev  # 更改为你需要监听的分支，如果是其他分支请相应修改  
 
-jobs:  
-  deploy:  
-    runs-on: ubuntu-latest  
 
-    steps:  
-      - name: Checkout repository  
-        uses: actions/checkout@v2  
-
-      - name: Check for changes in docs directory  
-        run: |  
-          git diff --quiet HEAD^ HEAD -- docs || echo "Changes detected in docs directory"  
-
-      - name: Deploy to GitHub Pages  
-        if: success() && steps.check_for_changes.outputs.changed == 'true'  
-        run: |  
-          # 配置 Git  
-          git config --global user.name "GitHub Actions"  
-          git config --global user.email "actions@github.com"  
-
-          # 将 docs 目录内容复制到 gh-pages 分支  
-          git checkout --orphan gh-pages  
-          rm -rf ./*  
-          cp -r docs/* ./  
-          git add .  
-          git commit -m "Deploy docs to GitHub Pages" || echo "No changes to commit"  
-          git push --force origin gh-pages  
 
