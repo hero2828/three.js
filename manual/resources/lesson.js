@@ -39,7 +39,7 @@
 
 		if ( window.location.protocol !== 'file:' ) {
 
-			const re = /^(.*?\/manual\/)(.*?)$/;
+			const re = /^(.*?\https://threejs.org/manual\/)(.*?)$/;
 			const [ , baseURL, articlePath ] = re.exec( window.location.href );
 			const href = `${baseURL}#${articlePath.replace( '.html', '' )}`;
 			window.location.replace( href ); // lgtm[js/client-side-unvalidated-url-redirection]

@@ -25,7 +25,7 @@ import { threejsLessonUtils } from './threejs-lesson-utils.js';
 
 	}
 
-	const filterTextureInfo = loadTextureAndPromise( '/manual/resources/images/mip-example.png' );
+	const filterTextureInfo = loadTextureAndPromise( 'https://threejs.org/manual/resources/images/mip-example.png' );
 	const filterTexture = filterTextureInfo.texture;
 	const filterTexturePromise = filterTextureInfo.promise;
 

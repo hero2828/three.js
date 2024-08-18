@@ -256,7 +256,7 @@
 		const importRE = /(import.*?)(?!'three')('|")(.*?)('|")/g;
 
 		const newScripts = [];
-		const slashRE = /\/manual\/examples\/[^/]+$/;
+		const slashRE = /\https://threejs.org/manual\/examples\/[^/]+$/;
 
 		function replaceWithUUID( match, prefix, quote, url ) {
 

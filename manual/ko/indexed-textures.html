@@ -18,7 +18,7 @@
   }
 }
 </script>
-    <link rel="stylesheet" href="/manual/ko/lang.css">
+    <link rel="stylesheet" href="https://threejs.org/manual/ko/lang.css">
   </head>
   <body>
     <div class="container">
@@ -37,7 +37,7 @@
 <p>32비트 부동 소수 대신 16비트 방식으로 데이터를 저장할 수도 있습니다. 또는 <a href="https://google.github.io/draco/">드레이코 압축기</a> 같은 프로그램을 사용하는 것만으로 충분히 데이터를 줄일 수 있을지도 모르죠. 전 따로 드레이코 압축기를 사용해보진 않았으니 여러분이 한 번 써보시고 알려주신다면 감사하겠습니다 😅.</p>
 <p>이 글에서는 <a href="picking.html">피킹에 관한 글</a> 마지막에서 다뤘던 <a href="picking.html">GPU 피킹</a>을 사용해보겠습니다. 각 mesh에 id 역할을 할 고유한 색을 부여하고 해당 mesh를 클릭했을 때 해당 픽셀의 색상값으로 사용자가 어떤 mesh를 클릭했는지 알아내는 방법이죠.</p>
 <p>일단 각 나라에 고유한 색상을 부여한 뒤, 이 색상값을 인덱스로 나라 배열을 만듭니다. 그리고 피킹용 텍스처를 만든 뒤 이걸로 지구본을 렌더링합니다. 이러면 사용자가 클릭한 픽셀을 확인해 어떤 나라를 클릭했는지 알 수 있겠죠.</p>
-<p>먼저 <a href="https://github.com/mrdoob/three.js/blob/master/manual/resources/tools/geo-picking/">약간의 코드</a>를 작성해 아래의 텍스처를 만들었습니다.</p>
+<p>먼저 <a href="https://github.com/mrdoob/three.js/blob/masterhttps://threejs.org/manual/resources/tools/geo-picking/">약간의 코드</a>를 작성해 아래의 텍스처를 만들었습니다.</p>
 <div class="threejs_center"><img src="../examples/resources/data/world/country-index-texture.png" style="width: 700px;"></div>
 
 <blockquote>
@@ -200,8 +200,8 @@ canvas.addEventListener('pointerup', pickCountry);
 </pre>
 <p>이제 나라를 선택해 볼 수 있습니다.</p>
 <p></p><div translate="no" class="threejs_example_container notranslate">
-  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/manual/examples/resources/editor.html?url=/manual/examples/indexed-textures-picking.html"></iframe></div>
-  <a class="threejs_center" href="/manual/examples/indexed-textures-picking.html" target="_blank">새 탭에서 보기</a>
+  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="https://threejs.org/manual/examples/resources/editor.html?url=https://threejs.org/manual/examples/indexed-textures-picking.html"></iframe></div>
+  <a class="threejs_center" href="https://threejs.org/manual/examples/indexed-textures-picking.html" target="_blank">새 탭에서 보기</a>
 </div>
 
 <p></p>
@@ -360,8 +360,8 @@ scene.add(new THREE.Mesh(geometry, material));
 </pre>
 <p>이제 예제를 실행하면 각 나라의 색상이 무작위로 지정된 것이 보일 겁니다.</p>
 <p></p><div translate="no" class="threejs_example_container notranslate">
-  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/manual/examples/resources/editor.html?url=/manual/examples/indexed-textures-random-colors.html"></iframe></div>
-  <a class="threejs_center" href="/manual/examples/indexed-textures-random-colors.html" target="_blank">새 탭에서 보기</a>
+  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="https://threejs.org/manual/examples/resources/editor.html?url=https://threejs.org/manual/examples/indexed-textures-random-colors.html"></iframe></div>
+  <a class="threejs_center" href="https://threejs.org/manual/examples/indexed-textures-random-colors.html" target="_blank">새 탭에서 보기</a>
 </div>
 
 <p></p>
@@ -440,8 +440,8 @@ function unselectAllCountries() {
 </pre>
 <p>이제 선택한 나라가 강조되어 보일 겁니다.</p>
 <p></p><div translate="no" class="threejs_example_container notranslate">
-  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/manual/examples/resources/editor.html?url=/manual/examples/indexed-textures-picking-and-highlighting.html"></iframe></div>
-  <a class="threejs_center" href="/manual/examples/indexed-textures-picking-and-highlighting.html" target="_blank">새 탭에서 보기</a>
+  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="https://threejs.org/manual/examples/resources/editor.html?url=https://threejs.org/manual/examples/indexed-textures-picking-and-highlighting.html"></iframe></div>
+  <a class="threejs_center" href="https://threejs.org/manual/examples/indexed-textures-picking-and-highlighting.html" target="_blank">새 탭에서 보기</a>
 </div>
 
 <p></p>
@@ -520,8 +520,8 @@ canvas.addEventListener('pointerup', pickCountry);
 </pre>
 <p>제 기준에서는 이 정도면 충분한 <em>듯하네요</em>.</p>
 <p></p><div translate="no" class="threejs_example_container notranslate">
-  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/manual/examples/resources/editor.html?url=/manual/examples/indexed-textures-picking-debounced.html"></iframe></div>
-  <a class="threejs_center" href="/manual/examples/indexed-textures-picking-debounced.html" target="_blank">새 탭에서 보기</a>
+  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="https://threejs.org/manual/examples/resources/editor.html?url=https://threejs.org/manual/examples/indexed-textures-picking-debounced.html"></iframe></div>
+  <a class="threejs_center" href="https://threejs.org/manual/examples/indexed-textures-picking-debounced.html" target="_blank">새 탭에서 보기</a>
 </div>
 
 <p></p>

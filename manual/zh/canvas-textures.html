@@ -18,7 +18,7 @@
   }
 }
 </script>
-    <link rel="stylesheet" href="/manual/zh/lang.css">
+    <link rel="stylesheet" href="https://threejs.org/manual/zh/lang.css">
   </head>
   <body>
     <div class="container">
@@ -65,8 +65,8 @@ function render() {
 requestAnimationFrame(render);</pre>
           <p>这实在太简单了。</p>
           <p></p><div translate="no" class="threejs_example_container notranslate">
-            <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/manual/examples/resources/editor.html?url=/manual/examples/canvas-random-dots.html"></iframe></div>
-            <a class="threejs_center" href="/manual/examples/canvas-random-dots.html" target="_blank">点击在新窗口打开</a>
+            <div><iframe class="threejs_example notranslate" translate="no" style=" " src="https://threejs.org/manual/examples/resources/editor.html?url=https://threejs.org/manual/examples/canvas-random-dots.html"></iframe></div>
+            <a class="threejs_center" href="https://threejs.org/manual/examples/canvas-random-dots.html" target="_blank">点击在新窗口打开</a>
           </div>
 
           <p></p>
@@ -116,8 +116,8 @@ cubes.push(cube);  // 添加到cube list中方便旋转</pre>
           <p>我们只需要做额外的一件事，设置了 <a href="/docs/#api/en/textures/CanvasTexture"><code class="notranslate" translate="no">CanvasTexture</code></a> 的 <code class="notranslate" translate="no">needsUpdate</code>属性来告诉THREE.js来更新纹理画布的最新内容。</p>
           <p>这样，我们就有了一个用Canvas绘制纹理的立方体。</p>
           <p></p><div translate="no" class="threejs_example_container notranslate">
-            <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/manual/examples/resources/editor.html?url=/manual/examples/canvas-textured-cube.html"></iframe></div>
-            <a class="threejs_center" href="/manual/examples/canvas-textured-cube.html" target="_blank">点击在新窗口打开</a>
+            <div><iframe class="threejs_example notranslate" translate="no" style=" " src="https://threejs.org/manual/examples/resources/editor.html?url=https://threejs.org/manual/examples/canvas-textured-cube.html"></iframe></div>
+            <a class="threejs_center" href="https://threejs.org/manual/examples/canvas-textured-cube.html" target="_blank">点击在新窗口打开</a>
           </div>
           <p></p>
           <p>请注意，如果你想使用THREE.js绘制到Canvas中，你最好用 <code class="notranslate" translate="no">RenderTarget</code>，在 <a href="rendertargets.html">这篇文章</a> 中有提到。</p>
@@ -242,8 +242,8 @@ const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 +controls.update();</pre>
           <p>然后我们得到了一些简单的标签。</p>
           <p></p><div translate="no" class="threejs_example_container notranslate">
-            <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/manual/examples/resources/editor.html?url=/manual/examples/canvas-textured-labels.html"></iframe></div>
-            <a class="threejs_center" href="/manual/examples/canvas-textured-labels.html" target="_blank">点击在新窗口打开</a>
+            <div><iframe class="threejs_example notranslate" translate="no" style=" " src="https://threejs.org/manual/examples/resources/editor.html?url=https://threejs.org/manual/examples/canvas-textured-labels.html"></iframe></div>
+            <a class="threejs_center" href="https://threejs.org/manual/examples/canvas-textured-labels.html" target="_blank">点击在新窗口打开</a>
           </div>
           <p></p>
           <p>注意事项：</p>
@@ -310,8 +310,8 @@ const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 +makePerson(+3, 150, 32, 'Red Menace', 'red');</pre>
           <p>我们将文本居中并缩放以适应标签的尺寸。</p>
           <p></p><div translate="no" class="threejs_example_container notranslate">
-            <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/manual/examples/resources/editor.html?url=/manual/examples/canvas-textured-labels-scale-to-fit.html"></iframe></div>
-            <a class="threejs_center" href="/manual/examples/canvas-textured-labels-scale-to-fit.html" target="_blank">点击在新窗口打开</a>
+            <div><iframe class="threejs_example notranslate" translate="no" style=" " src="https://threejs.org/manual/examples/resources/editor.html?url=https://threejs.org/manual/examples/canvas-textured-labels-scale-to-fit.html"></iframe></div>
+            <a class="threejs_center" href="https://threejs.org/manual/examples/canvas-textured-labels-scale-to-fit.html" target="_blank">点击在新窗口打开</a>
           </div>
           <p></p>
           <p>上面我们为每一个纹理使用了单独的Canvas，是否为每个纹理使用单独的Canvas取决于你。如果你需要经常单独更新它们，每个纹理一个Canvas是一个比较好的选择。如果它们很少或者从不更新，那么你可以用一个Canvas，通过THREE.js来生成多个纹理。让我们更改上面的代码来完成这一点。</p>
@@ -349,8 +349,8 @@ function makePerson(x, labelWidth, size, name, color) {
 
   ...</pre>
           <p></p><div translate="no" class="threejs_example_container notranslate">
-            <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/manual/examples/resources/editor.html?url=/manual/examples/canvas-textured-labels-one-canvas.html"></iframe></div>
-            <a class="threejs_center" href="/manual/examples/canvas-textured-labels-one-canvas.html" target="_blank">点击在新窗口打开</a>
+            <div><iframe class="threejs_example notranslate" translate="no" style=" " src="https://threejs.org/manual/examples/resources/editor.html?url=https://threejs.org/manual/examples/canvas-textured-labels-one-canvas.html"></iframe></div>
+            <a class="threejs_center" href="https://threejs.org/manual/examples/canvas-textured-labels-one-canvas.html" target="_blank">点击在新窗口打开</a>
           </div>
           <p></p>
           <p>另一个问题是标签并不总是面向相机，如果你使用标签作为徽标，这可能是一件好事。
